@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2041
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BooksSeller.WebApi", "BooksSeller.WebApi\BooksSeller.WebApi.csproj", "{D5A0E7CF-5C40-4158-96F4-A2AD0849F810}"
 EndProject
@@ -29,6 +29,11 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "BooksSeller.Client", "Books
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Base de Dados", "Base de Dados", "{D449D1E5-2769-41B7-8A27-45C6104EF3C6}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\Books.mdf = ..\..\Books.mdf
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -50,5 +55,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4BEEF42C-0AB8-4E56-B0D0-C98702DB0419}
 	EndGlobalSection
 EndGlobal
