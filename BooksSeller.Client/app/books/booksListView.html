@@ -1,0 +1,28 @@
+﻿<div class="panel panel-primary" ng-controller="booksListController as vm">
+    <div class="panel-heading" style="font-size:large">
+        Books List
+    </div>
+    <button ng-click="vm.toCreation()">New Book</button>
+    <div class="panel-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>Id</td>
+                    <td>Code</td>
+                    <td>Title</td>
+                    <td>Available</td>
+                    <td>Price in {{currency}}</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-click="vm.click(book)" ng-repeat="book in vm.books ">
+                    <td>{{book.Id}}</td>
+                    <td>{{ book.Code }}</td>
+                    <td>{{ book.Title }}</td>
+                    <td>{{ book.ReleaseDate }}</td>
+                    <td>{{ book.Price }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

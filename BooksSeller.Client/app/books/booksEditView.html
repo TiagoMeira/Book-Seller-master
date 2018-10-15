@@ -1,0 +1,122 @@
+﻿<form class="form-horizontal"
+      name="bookForm"
+      novalidate
+      ng-controller="booksEditController as vm">
+    <fieldset>
+        <legend>{{ vm.title }}</legend>
+        
+        <div class="form-group"
+             ng-class="{'has-error':bookForm.inputCode.$invalid &&
+                                    bookForm.inputCode.$dirty}">
+            <label class="col-md-2 control-label"
+                   for="inputCode">Code</label>
+
+            <div class="col-md-4">
+                <input class="form-control"
+                       id="inputCode"
+                       name="inputCode"
+                       type="text"
+                       placeholder="Book Code (required)"
+                       ng-model="vm.book.Code"
+                       ng-pattern="/^[A-Z]{3}[-][0-9]{4}$/"
+                       maxlength="8"
+                       required>
+            </div>
+            <span class="help-block has-error">
+                Product Code is required
+            </span>
+            <span class="help-block has-error">
+                Code is not valid. It must be in ABC-9999 format.
+            </span>
+        </div>
+
+        <div class="form-group"
+             ng-class="{'has-error':bookForm.inputTitle.$invalid &&
+                                    bookForm.inputTitle.$dirty}">
+            <label class="col-md-2 control-label"
+                   for="inputTitle">Title</label>
+
+            <div class="col-md-4">
+                <input class="form-control"
+                       id="inputTitle"
+                       name="inputTitle"
+                       type="text"
+                       placeholder="Title (required)"
+                       ng-model="vm.book.Title"
+                       required
+                       ng-minlength="1"
+                       ng-maxlength="100" />
+            </div>
+            <span class="help-block has-error">
+                <span>
+                    Book title is required.
+                </span>
+            </span>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-2 control-label"
+                   for="inputAvailabilityDate">Availability</label>
+
+            <div class="col-md-4">
+                <input class="form-control"
+                       id="inputAvailabilityDate"
+                       name="inputAvailabilityDate"
+                       type="text"
+                       placeholder="Release date (required)"
+                       ng-model="vm.book.ReleaseDate"
+                       required />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-2 control-label"
+                   for="inputPrice">Price in{{currency}}</label>
+
+            <div class="col-md-4">
+                <input class="form-control"
+                       id="inputPrice"
+                       name="inputPrice"
+                       type="text"
+                       placeholder="Price (required)"
+                       ng-model="vm.book.Price"
+                       required />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-4 col-md-offset-2">
+                <span>
+                    <button class="btn btn-primary"
+                            style="width:80px;margin-right:10px"
+                            ng-click="vm.delete()"
+                            ng-if="vm.book.Id > 0">
+                        Delete
+                    </button>
+                </span>
+                <span>
+                    <button class="btn btn-primary"
+                            style="width:80px;margin-right:10px"
+                            ng-click="vm.submit()">
+                        Save
+                    </button>
+                </span>
+                <span>
+                    <button class="btn btn-default"
+                            style="width:70px"
+                            ng-click="vm.cancel(bookForm)">
+                        Cancel
+                    </button>
+                </span>
+            </div>
+        </div>
+
+        <div class="form-group"
+             ng-show="vm.message">
+            <div class="col-md-6">
+                <pre style="font: inherit">{{ vm.message }}</pre>
+            </div>
+        </div>
+
+    </fieldset>
+</form>
