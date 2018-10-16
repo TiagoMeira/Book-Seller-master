@@ -1,10 +1,5 @@
 ﻿using BooksSeller.WebApi.Models;
 using BooksSeller.WebApi.Providers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 
@@ -12,18 +7,35 @@ namespace BooksSeller.WebApi.Controllers
 {
     public class BooksController : ApiController
     {
-        IBooksProvider _booksProvider = new BooksProvider();
+        private readonly IBooksProvider _booksProvider = new BooksProvider();
 
+        //private readonly IBooksProvider _booksProvider
+        //private BooksProvider books;
+
+        //public BooksController(IBooksProvider _books) {
+            //_booksProvider = _books;
+        //}
+             
         // GET: api/Books
-        public async Task<IEnumerable<Book>> Get()
+        public async Task<IHttpActionResult> Get()
         {
-            return await _booksProvider.GetBooks();
+            var result =  await _booksProvider.GetBooks();
+
+            if(result == null) {
+                return NotFound();
+            }
+            return Ok(result);
         }
 
         // GET: api/Books/5
-        public async Task<Book> Get(int id)
+        public async Task<IHttpActionResult> Get(int id)
         {
-            return await _booksProvider.GetBook(id);
+            var result =  await _booksProvider.GetBook(id);
+
+            if (result == null) {
+                return NotFound();
+            }
+            return Ok(result);
         }
 
         // POST: api/Books

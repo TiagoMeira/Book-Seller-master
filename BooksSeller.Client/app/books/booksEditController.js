@@ -34,8 +34,8 @@
 
                     returnPage();
                 }
-                if (vm.book.Title === "" || vm.book.Price === "") {
-                    alert("Test");
+                if (!vm.book.Title || !vm.book.Price) {
+                    alert("Title and/or Price fields required!");
 
                     returnPage();
                 }
@@ -46,8 +46,8 @@
                 });
 
             } else {
-                if (vm.book.Title === "" || vm.book.Price === "") {
-                    alert("Test");
+                if (!vm.book.Title || !vm.book.Price) {
+                    alert("Title and/or Price fields required!");
 
                     returnPage();
                 }

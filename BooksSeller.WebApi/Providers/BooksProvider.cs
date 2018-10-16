@@ -48,8 +48,10 @@ namespace BooksSeller.WebApi.Providers
                     }
                 }
             }
-            catch (Exception ex) {
+            catch (Exception) {
+                currentBook = null;
 
+                return currentBook;
             }
             return currentBook;
         }
